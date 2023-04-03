@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 @DiscriminatorValue("employee")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Employee {
 

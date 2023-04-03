@@ -4,6 +4,7 @@ import com.example.springmvcexample2.dto.EmployeeDto;
 import com.example.springmvcexample2.mapper.EmployeeMapper;
 import com.example.springmvcexample2.repository.EmployeeRepository;
 import com.example.springmvcexample2.service.EmployeeService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDto findById(Long id) {
-        var employee = employeeRepository.findById(id).orElseThrow();
+        var employee = employeeRepository.findById(id).orElseThrow(EntityNotFoundException::new);
 
         return employeeMapper.employeeToDto(employee);
     }
